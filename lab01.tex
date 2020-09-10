@@ -467,6 +467,20 @@ Thus, the solution for some constant $C$ is,
 
 \end{solution}
 
+\textbf{Note:}
+The general idea of the integrating facor method(s) is to transform the
+term $y^{\prime} + P(x) y$ into a full derivative using the product rule,
+with the help of the integrating factor $I(x)$. Suppose that we multiply the
+expression $y^{\prime} + P(x) y$ by some function (the integrating factor)
+$I(x)$:
+\[ I(x) y^{\prime} + I(x) P(x) y \],
+to transform this into a full derivative $\left( y I(x) \right)^{\prime}$.
+For this, we must require (according to the product rule):
+\[ I^{\prime}(x) = I(x) P(x) \]
+We can use the separation of variables to solve this differential equation
+and find $I(x)$:
+\[ I(x) = e^{\int P(x)dx}\]
+
 
 
 
@@ -740,7 +754,7 @@ y^{-2}y'+\left( \frac{1}{x} - 1 \right)y^{-1}=\frac{e^{-x}}{x} \\
 This equation can be solved using integrating factor,
 \[I(x)=e^{\int\left( 1 - \frac{1}{x} \right) dx}=e^{x - \ln |x|}=\frac{e^{x}}{x},\]
 then
-\[u(x)= xe^{-x}\left[-\int \frac{e^{x}}{x\frac{e^{-x}}{x}} dx + C\right]= xe^{-x}\left[\frac{1}{x} + C \right].\]
+\[u(x)= xe^{-x}\left[-\int \frac{e^{x}}{x} \frac{e^{-x}}{x} dx + C\right]= xe^{-x}\left[\frac{1}{x} + C \right].\]
 Going back to $y(x)$,
 \[y(x)= \left( e^{-x}  + Cxe^{-x} \right)^{-1}.\]
 Using the initial condition $y(1)=e$,
