@@ -16,8 +16,8 @@
 
 \course{Differential Equations}
 \coursecode{MATH 201}
-\term{Winter 2018}
-\instructor{Carlos Contreras}
+\term{Fall 2020}
+\instructor{Carlos Contreras, Rahim Usubov}
 \lqnumber{Lab 1}
 \labtitle{First-order differential equations}
 \makelabtitle
@@ -125,6 +125,18 @@ Solve the following problem
 \end{problem}
 
 
+% homogeneous 1st order
+\begin{problem}
+  Solve the following equation:
+  \begin{equation*}
+    \begin{aligned}
+      \left( x^2 + 3x y + y^2 \right)dx - x^2 dy = 0, \quad x>0.
+    \end{aligned}
+  \end{equation*}
+\end{problem}
+
+
+
 % exact equation
 \topic{Exact equations}
 \begin{problem}
@@ -141,6 +153,16 @@ Solve the following problem
 ydx + (2x - y e^{y}) dy = 0.
 \end{equation*}
 \end{problem}
+
+
+% non-exact
+\begin{problem}
+Solve the following problem
+\begin{equation*}
+\left( x + 2 \right) sin(y) + x cos(y) y^{\prime} = 0.
+\end{equation*}
+\end{problem}
+
 
 
 % Bernoulli
@@ -628,6 +650,47 @@ Finally, replacing the change of variable, the solution for some constant C is,
 \end{solution}
 
 
+
+% Rahim, another example of homogenous equation
+\begin{problem}
+  Solve the following equation:
+  \begin{equation}
+    \begin{aligned}
+      \left( x^2 + 3x y + y^2 \right)dx - x^2 dy = 0, \quad x>0.
+    \end{aligned}
+  \end{equation}
+\end{problem}
+
+\begin{solution}
+  First, it's convenient to rewrite the equation:
+  \begin{eqnarray*}
+    x^2 dy & = & \left( x^2 + 3x y + y^2 \right) dx \\
+    \frac {dy} {dx} & = & 1 + 3\left( \frac {y} {x} \right)  + \left( \frac {y} {x} \right)^2
+  \end{eqnarray*}
+  Now note that the right hand side depends only on $u(x) = \left( \frac {y} {x} \right)$,
+  so we can make a substitution
+  \[ y(x) = x u(x) \]
+  From this substitution:
+  \[ \frac {dy} {dx} = x \frac {du} {dx} + u \]
+  We can use it in the left hand side instead of $y^{\prime}$
+  \begin{eqnarray*}
+    x \frac {du} {dx} + u & = & 1 + 3 u + u^2 \\
+    x \frac {du} {dx} & = & 1 + 2 u + u^2 \\
+    \frac {du} {1 + 2u + u^2} & = & \frac {dx} {x}
+  \end{eqnarray*}
+  We see that the original equation is now transformed into a seperable equation.
+  Now we can simplify and integrate both sides to find $u(x)$
+  \begin{eqnarray*}
+    \int \frac {du} {(1 + u)^2} & = & \int \frac {dx} {x} \\
+    - \frac {1} {1 + u} + C & = & ln|x| \\
+    \frac {1} {1 + u} & = & C - ln|x| \\
+    u(x) & = & \frac {1} {C - ln|x|} - 1,
+  \end{eqnarray*}
+  and finally we substitute back $y(x)$ to find the solution
+  \[ y(x) = \frac {x} {C - ln(x)} - x \]
+\end{solution}
+
+
 % exact equation
 \begin{problem}
 Solve the following problem
@@ -657,7 +720,7 @@ ydx + (2x - y e^{y}) dy = 0.
 Note that the equation is not separable and not exact
 \[M _{y} = 1 \neq N_{ x} = 2 .\]
 To find the integrating factor we first compute either
-\[M_{ y} - N_{ x} N ,\]
+\[\frac {M_{ y} - N_{ x}} {N} ,\]
 to create an integrating factor depending only on $x$ (i.e., $\mu( x )$), or
 \[\frac{N_{ x} - M_{ y}}{ M} ,\]
 to create an integrating factor depending only on $y$ (i.e., $\mu ( y )$).
@@ -676,6 +739,62 @@ which after integration by parts gives,
 Finally,
 \[\boxed{F ( x,y ) = xy^{ 2} + ( - y^{ 2} + 2 y - 2) e^{ y} = C }.\]
 \end{solution}
+
+
+
+\begin{problem}
+Solve the following problem
+\begin{equation*}
+\left( x + 2 \right) sin(y) + x cos(y) y^{\prime} = 0.
+\end{equation*}
+\end{problem}
+
+\begin{solution}
+  Here $M(x, y) = \left( x + 2 \right) sin(y)$ and $N(x, y) = x cos(y)$. The equation
+  is not exact. We need to find the integrating factor: a function $\mu(x, y)$ that
+  we multiply by the whole equation:
+  \[ \mu M dx + \mu N dy = 0 \]
+  requiring that it is of exact type. Formally, we require
+  \[ M \mu_y - N \mu_x + \left( M_y - N_x \right) \mu = 0 \].
+  This is a PDE that's not trivial to solve, but in some cases we can make
+  simplifying assumptions, like $\mu = \mu(x)$ or $\mu = \mu(y)$ in the former case
+  we have
+  \begin{eqnarray*}
+    & -N \mu_x + \left( M_y - N_x \right) \mu = 0 \\
+    & \mu^{\prime} = \frac {M_y - N_x} {N} \mu.
+  \end{eqnarray*}
+  In this case, since $\mu = \mu(x)$, the expression in the right hand side
+  must also be a function of only $x$. If it's not the case we can try the second
+  assumption $\mu = \mu(y)$.
+  In our case
+  \[ \frac {M_y - N_x} {N} = \frac {\left( x + 2 \right) cos(y) - cos(y)} {x cos(y)}
+    = \frac {x+1} {x} \]
+  is a function of only $x$ so we may continue to find the integrating factor $\mu$.
+  We have a seperable equation for $\mu(x)$:
+  \begin{eqnarray*}
+    \frac {x+1} {x} dx & = & \frac {d \mu} {\mu} \\
+    \mu & = & x e^x
+  \end{eqnarray*}
+  Once we multiply the original equation by the integrating factor we get an exact
+  equation:
+  \[ \left( x + 2 \right) x e^x sin(y) dx + x^2 e^x cos(y) dy = 0. \]
+  Now we can solve it as an exact equation:
+  \begin{eqnarray*}
+    & \frac {\partial F} {\partial x} = \left( x + 2 \right) x e^x sin(y) \\\\
+    & F = \int \left( x + 2 \right) x e^x sin(y) dx + g(y) = x^2 e^x sin(y) + g(y) \\\\
+    & \frac {\partial F} {\partial y} = x^2 cos(y) e^x
+  \end{eqnarray*}
+  From this we conclude that
+  \begin{eqnarray*}
+    x^2 e^x cos(y) + g^{\prime} & = & x^2 e^x cos(y)\\
+    g(y) & = & C
+  \end{eqnarray*}
+  The solution is given implicitly:
+  \[ x^2 e^x sin(y) = C \]
+  
+  
+\end{solution}
+
 
 
 % Bernoulli equation
