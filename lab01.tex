@@ -155,6 +155,14 @@ ydx + (2x - y e^{y}) dy = 0.
 \end{problem}
 
 
+\begin{problem}
+Solve the following problem
+\begin{equation*}
+x \left( 2 - 9xy^2 \right)dx + y(4y^2 - 6x^3) dy = 0.
+\end{equation*}
+\end{problem}
+
+
 % non-exact
 \begin{problem}
 Solve the following problem
@@ -742,6 +750,43 @@ Finally,
 
 
 
+% Rahim exact
+\begin{problem}
+Solve the following problem
+\begin{equation*}
+  x \left( 2 - 9xy^2 \right)dx + y(4y^2 - 6x^3) dy = 0.
+\end{equation*}
+\end{problem}
+\begin{solution}
+  Here $M(x, y) = x \left( 2 - 9xy^2 \right)$ and $N(x, y) = y(4y^2 - 6x^3)$.
+  It's easy to see that the equation is exact since
+  \[ \frac {\partial M} {\partial y} = \frac {\partial N} {\partial x}
+    = - 18 x^2 y. \]
+  The aim is to find a function $F(x, y)$ such that:
+  \[ \frac {\partial F} {\partial x} = M(x, y) \quad and \quad
+    \frac {\partial F} {\partial y} = N(x, y) \]
+  Then we can rewrite the original equation as
+  \[ \frac {\partial F} {\partial x} dx + \frac {\partial F} {\partial y} dy
+    = d F = 0 \]
+  and the solution will be just $F(x, y) = C$.
+  Here we can write
+  \[ \frac {\partial F} {\partial x} = 2x - 9x^2y^2 \]
+  We can integrate and get
+  \[ F = x^2 - 3 x^3 y^2 + g(y) \]
+  for some function $g(y)$. Now using the second condition
+  \[ \frac {\partial F} {\partial y} = -6x^3y + g^{\prime}(y) = 4y^3 - 6x^3y \]
+  we find g(y):
+  \begin{eqnarray*}
+    g^{\prime}(y) = 4y^3 \\
+    g(y) = y^4
+  \end{eqnarray*}
+ \[ \boxed{F(x, y) = x^2 - 3 x^3 y^2 + y^4 = C} \]  
+\end{solution}
+
+
+
+
+% Rahim non - exact
 \begin{problem}
 Solve the following problem
 \begin{equation*}
@@ -772,7 +817,9 @@ Solve the following problem
   is a function of only $x$ so we may continue to find the integrating factor $\mu$.
   We have a seperable equation for $\mu(x)$:
   \begin{eqnarray*}
-    \frac {x+1} {x} dx & = & \frac {d \mu} {\mu} \\
+    \frac {d \mu} {\mu} & = & \frac {x+1} {x} dx \\
+    \mu & = & exp \left(\int \frac {M_y - N_x} {N} dx \right) \\
+    \mu & = & exp \left(\int \frac {x+1} {x} dx \right) \\
     \mu & = & x e^x
   \end{eqnarray*}
   Once we multiply the original equation by the integrating factor we get an exact
@@ -790,7 +837,7 @@ Solve the following problem
     g(y) & = & C
   \end{eqnarray*}
   The solution is given implicitly:
-  \[ x^2 e^x sin(y) = C \]
+  \[ \boxed{ x^2 e^x sin(y) = C } \]
   
   
 \end{solution}
