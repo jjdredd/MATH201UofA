@@ -739,7 +739,7 @@ Since this function depends only on $y$ we can define the following integrating 
 Multiplying both sides of the equation by $\mu ( y ) = y$ , we get
 \[y^{ 2} dx + (2 xy - y^{ 2} e^{ y} ) dy = 0 .\]
 Note that this new equation is exact.  Now we apply the method for exact equations
-\[F ( x,y ) = \int M ( x,y ) \partial x = Z\int y^{ 2} \partial x = xy 2 + h ( y ) .\]
+\[F ( x,y ) = \int M ( x,y ) dx = \int y^{ 2} dx = xy^2 + h ( y ) .\]
 and
 \[\partial_{ y} F ( x,y ) = 2 xy + h'( y ) = 2 xy - y^{ 2} e^{ y} = N ( x,y ) \Rightarrow h'( y ) = - y^{ 2} e^{ y} ,\]
 which after integration by parts gives,
@@ -775,7 +775,7 @@ Solve the following problem
   \[ F = x^2 - 3 x^3 y^2 + g(y) \]
   for some function $g(y)$. Now using the second condition
   \[ \frac {\partial F} {\partial y} = -6x^3y + g^{\prime}(y) = 4y^3 - 6x^3y \]
-  we find g(y):
+  we find $g(y)$:
   \begin{eqnarray*}
     g^{\prime}(y) = 4y^3 \\
     g(y) = y^4
