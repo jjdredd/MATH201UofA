@@ -352,6 +352,36 @@ is the general solution. \\
 
 
 
+\underline{\textbf{A note on the general method of variation of parameters:}} \\
+
+The general idea of the formula of variation of parameters is to assume that
+the solution is in the form $y(t) = v_1(t) y_1(t) + v_2(t) y_2(t)$, where
+$y_1$ and $y_2$ are fundamental solutions to the homogeneous equation and
+$v_1$ and $v_2$ are yet unknown functions. The idea is similar: using the
+guess for the solution in this form, substitute it back into the original
+non-homogeneous equation and find $v_1$ and $v_2$ from the resulting equation.
+For this we need to find $y^{\prime}$ and $y^{\prime \prime}$:
+\[y^{\prime} = v_1^{\prime} y_1 + v_2^{\prime} y_2 + v_1 y_1^{\prime} + v_2 y_2^{\prime} \]
+Using a simplifying assumption $v_1^{\prime} y_1 + v_2^{\prime} y_2 = 0$, we have
+\[y^{\prime} = v_1 y_1^{\prime} + v_2 y_2^{\prime}\]
+and
+\[y^{\prime \prime} = v_1^{\prime} y_1^{\prime} + v_2^{\prime} y_2^{\prime} +
+  v_1 y_1^{\prime \prime} + v_2 y_2^{\prime \prime} \]
+% Now we can use another simplifying assumption
+% $v_1^{\prime} y_1^{\prime} + v_2^{\prime} y_2^{\prime} = 0$
+
+Since $y_1$ and $y_2$ are fundamental solutions to the homogeneous equation,
+once we make the substitution, many terms will vanish and we will be left with the system
+
+\begin{equation}
+  \left\{
+  \begin{aligned}
+    & v_1^{\prime} y_1 + v_2^{\prime} y_2 = 0, \\
+    & v_1^{\prime} y_1^{\prime} + v_2^{\prime} y_2^{\prime} = g(t).
+  \end{aligned}
+  \right.
+\end{equation}
+
 
 % variation of parameters
 \begin{problem}
