@@ -17,8 +17,8 @@
 
 \course{Differential Equations}
 \coursecode{MATH 201}
-\term{Winter 2018}
-\instructor{Carlos Contreras}
+\term{Fall 2020}
+\instructor{Carlos Contreras, Rahim Usubov}
 \lqnumber{Lab 3}
 \labtitle{Undetermined coefficients and variation of parameters}
 \makelabtitle
@@ -91,6 +91,18 @@ Find a general solution to differential equation
 \end{problem}
 
 
+\begin{problem}
+(Romanko) Solve the following problem, knowing that one of the solutions to
+the homogeneous equation is $y_1 = x^2$:
+\begin{equation*}     
+  \left( 2x + 3 \right) y^{\prime \prime} - 2 y^{\prime} - \frac {6} {x^2} y
+  = 3 \left( 2x + 3 \right)^2, \quad x>0.
+\end{equation*}
+\end{problem}
+
+
+
+
 \topic{Cauchy-Euler}
 
 
@@ -108,7 +120,6 @@ Solve the following problem
      x^{2}y''+3xy'+y=5x^{-1}\ln x.
 \end{equation*}
 \end{problem}
-
 
 
 
@@ -440,7 +451,7 @@ Hence, the general solution is given by:
 \begin{problem}
 Find a general solution to differential equation
 \begin{equation*}
-5y'' + -20 y' +20 y = t^{-2}e^{2t}+20, \qquad t>0.
+5y'' -20 y' +20 y = t^{-2}e^{2t}+20, \qquad t>0.
 \end{equation*}
 \end{problem}
 \begin{solution}
@@ -456,7 +467,7 @@ y_{h}(t) = C_{1}e^{2t}+C_{2}te^{2t}.
 Now, the $t^{-2}e^{2t}$ makes us think that undetermined coefficients is the method here. But recall that $t^{-2}$, which is a rational function not a polynomial, is not in the table. Thus, we must use variation of parameters. On the other hand, the part with the term $20$ can be solved easily using undetermined coefficients. We will have then two particular solutions $y_{p_{1}}(t)$ and $y_{p_{2}}(t)$ for the $t^{-2}e^{2t}$ and $20$ terms, respectively. 
 
 \par \textsl{1.} Particular solution for
-\[5y'' + -20 y' +20 y = t^{-2}e^{2t},\] using variation of parameters is
+\[5y'' -20 y' +20 y = t^{-2}e^{2t},\] using variation of parameters is
 \begin{equation*}
 y_{p_{1}}(t) = v_{1}(t) e^{2t} + v_{2}(t) te^{2t}.
 \end{equation*}
@@ -494,8 +505,61 @@ Hence, the general solution is given by
 
 
 
+\begin{problem}
+(Romanko) Solve the following problem, knowing that one of the solutions to
+the homogeneous equation is $y_1 = x^2$:
+\begin{equation*}     
+  \left( 2x + 3 \right) y^{\prime \prime} - 2 y^{\prime} - \frac {6} {x^2} y
+  = 3 \left( 2x + 3 \right)^2, \quad x>0.
+\end{equation*}
+\end{problem}
+
+\begin{solution}
+  First, we must find the second solution of the homogenous equation $y_2$ using the Abel's
+  formula:
+  \begin{eqnarray*}
+    W[y_1, y_2] & = & C exp \left( \int \frac {2x dx} {2x + 3} \right) \\
+    W[y_1, y_2] & = & x^2 y_2^{\prime} - 2 x y_2 \\
+    y_2^{\prime} - \frac {2} {x} y_2 & = & \frac {2x + 3} {x^2}
+  \end{eqnarray*}
+  We have a differential equation on $y_2$ which we can solve using an integrating factor:
+  \begin{eqnarray*}
+    \mu & = & e ^{-2ln(x)} = \frac {1} {x^2} \\
+    \left( \frac {y_2} {x^2} \right)^{\prime} & = & \frac {2x + 3} {x^2} \\
+    y_2 & = & x^2 + \frac {x + 1} {x}
+  \end{eqnarray*}
+  The solution to the homogeneous equation is
+  \[y = C_1 x^2 + C_2 \frac {x+1} {x}. \]
+  Now we look for the solution to the original problem in the form:
+  \[ y = v_1(x) x^2 + v_2(x) \frac {x+1} {x} \]
+  Once we substitute this into the original equation and make the necessary assumptions
+  we get:
+  \begin{equation}
+    \left \{
+    \begin{aligned}
+      & x^2 v_1^{\prime} + \left( 1 + \frac {1} {x} \right) v_2^{\prime} = 0, \\
+      & 2x v_1^{\prime} - \frac {1} {x^2} v_2^{\prime} = 3 \left( 2x + 3 \right).
+    \end{aligned}
+    \right.
+  \end{equation}
+  Once we solve it:
+  \begin{eqnarray*}
+    v_1^{\prime} & = & 3 + \frac {3} {x} \\
+    v_1 & = & 3x + 3ln(x) + D_1 \\
+    v_2^{\prime} & = & -3x^2 \\
+    v_2 & = & -x^3 + D_2 \\
+  \end{eqnarray*}
+  Here, $D_1$ and $D_2$ are constants. Finally we substitute $v_1(x)$ and $v_2(x)$
+  into our guess for the solution:
+  \begin{equation*}
+    \boxed{y(x) = D_1 x^2 + D_2 \left( 1 + \frac {1} {x} \right) + 2x^3 + 3x^2 ln(x)  } 
+  \end{equation*}
+\end{solution}
 
 
+
+
+% Euler
 \begin{problem}
 Solve the following problem
 \begin{equation*}
