@@ -420,7 +420,7 @@ To find a particular solution to this equation, we will make the following guess
 \begin{equation*}
 y_{p}(t) = v_{1}(t) \cos(t) + v_{2}(t) \sin(t)
 \end{equation*}
-We can find the coefficients $C_{1}(t)$ and $C_{2}(t)$ using the variation of parameters formulas with $g(t) = \sec(t)$.
+We can find the coefficients $v_{1}(t)$ and $v_{2}(t)$ using the variation of parameters formulas with $g(t) = \sec(t)$.
 Hence:
 \begin{eqnarray*}
 v_{1}(t) & = & - \int \dfrac{g(t) y_{2}(t)}{W[y_{1},y_{2}](t)} {\rm d} t \\
@@ -515,10 +515,16 @@ the homogeneous equation is $y_1 = x^2$:
 \end{problem}
 
 \begin{solution}
+  To start with the solution we must write the equation in the standard form:
+  \[ y^{\prime \prime} - \frac {2} {2x + 3} y^{\prime} - \frac {6} {x^2 (2x + 3)} y =
+    3 \left( 2x + 3 \right) \]
   First, we must find the second solution of the homogenous equation $y_2$ using the Abel's
-  formula:
+  identity (see for example chap. 4.7 Exercise 32 or chap. 6.1 in ``R. Kent Nagle, Edward B. Saff, Arthur David Snider - Fundamentals of Differential Equations-Pearson (2017)'':
+  \[ W[y_1, y_2] = C exp \left( \int p(x) dx \right).\]
+  Here, $p(x)$ is the coefficient by the $y^{\prime}$ in the standard form:
+  $p(x) = - \frac {2} {2x + 3} $.
   \begin{eqnarray*}
-    W[y_1, y_2] & = & C exp \left( \int \frac {2x dx} {2x + 3} \right) \\
+    W[y_1, y_2] & = & C exp \left( \int \frac {2 dx} {2x + 3} \right) \\
     W[y_1, y_2] & = & x^2 y_2^{\prime} - 2 x y_2 \\
     y_2^{\prime} - \frac {2} {x} y_2 & = & \frac {2x + 3} {x^2}
   \end{eqnarray*}
