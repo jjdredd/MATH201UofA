@@ -386,10 +386,19 @@ y^{\prime \prime} + 3 t y^{\prime} - 6y = 1 ; \quad y(0)=0, \quad y^{\prime}(0) 
 
 \begin{solution}
 
-  First, perform the LT of the original DE:
-  \[ s^2 Y(s) - 3 \frac {d} {ds} \left( s Y(s) \right) - Y(s) = \frac {1} {s} \]
+  First, perform the Laplace Transform of the original IVP. Using formulas
+  \begin{eqnarray*}
+    \mathcal{L}\{t^{n}f(t)\} & = & (-1)^{n}\frac{d^{n}}{ds^{n}} F(s) \\
+    \mathcal{L}\{y^{\prime}(t)\} & = & sY(s) - y(0)
+  \end{eqnarray*}
+  we write:
+  \[ s^2 Y(s) - 3 \frac {d} {ds} \left( s Y(s) \right) - 6Y(s) = \frac {1} {s} \]
   or taking the derivative and rearranging:
-  \[ Y^{\prime}(s) - \left( \frac {s} {3} - \frac {3} {s} \right) Y(s) = \frac {1} {s} \]
+  \begin{eqnarray*}
+    s^2 Y(s) -3 Y(s) - 3 s Y^{\prime}(s) - 6 Y(s) & = & \frac {1} {s} \\
+    -3 s Y^{\prime}(s) - \left( s^2 - 9 \right) Y(s) & = & \frac {1} {s} \\
+    Y^{\prime}(s) - \left( \frac {s} {3} - \frac {3} {s} \right) Y(s) & = & - \frac {1} {3 s^2}
+  \end{eqnarray*}
   This is a first order linear equation that can be solved using the integrating
   factor:
   \begin{eqnarray*}
@@ -401,10 +410,11 @@ y^{\prime \prime} + 3 t y^{\prime} - 6y = 1 ; \quad y(0)=0, \quad y^{\prime}(0) 
   \begin{eqnarray*}
     \frac {d} {ds} \left( \mu Y(s) \right) & = & - \frac {s} {3} e^{-\frac {s^2} {6}} \\
     \mu Y(s) & = & - \frac {1} {3} \int s e^{-\frac {s^2} {6}} ds \\
+    \mu Y(s) & = & \int e^{-\frac {s^2} {6}} d\left( - \frac {s^2} {6}  \right) \\
     \mu Y(s) & = & e^{-\frac {s^2} {6}} + C
   \end{eqnarray*}
   We find $Y(s)$:
-  \[ Y(s) = \frac {1} {s^3} + \frac {C} {s^3} e^{-\frac {s^2} {6}} \]
+  \[ Y(s) = \frac {1} {s^3} + \frac {C} {s^3} e^{\frac {s^2} {6}} \]
   Since $Y(s)$ is the LT of $y(t)$ (we assume that $y(t)$ is a 
   piecewise continuous function of exponential order), we must have
   $ \lim_{s \to \infty} Y(s) =0$, $C=0$. Now $Y(s) = \frac {1} {s^3}$ and we find
