@@ -66,6 +66,15 @@ t, \quad t<2 \\
 \end{equation*}
 \end{problem}
 
+\begin{problem}
+Solve the given initial value problem using the method of Laplace transforms
+\begin{equation*}
+y^{\prime \prime} + 3 t y^{\prime} - 6y = 1 ; \quad y(0)=0, \quad y^{\prime}(0) = 0.
+\end{equation*}
+\end{problem}
+
+
+
 % 
 % \begin{problem}
 % Find solutions to the given initial value problem
@@ -367,6 +376,43 @@ Isolating $Y(s)$, we obtain:
 \end{equation*}
 \end{solution}
 
+
+\begin{problem}
+Solve the given initial value problem using the method of Laplace transforms
+\begin{equation*}
+y^{\prime \prime} + 3 t y^{\prime} - 6y = 1 ; \quad y(0)=0, \quad y^{\prime}(0) = 0.
+\end{equation*}
+\end{problem}
+
+\begin{solution}
+
+  First, perform the LT of the original DE:
+  \[ s^2 Y(s) - 3 \frac {d} {ds} \left( s Y(s) \right) - Y(s) = \frac {1} {s} \]
+  or taking the derivative and rearranging:
+  \[ Y^{\prime}(s) - \left( \frac {s} {3} - \frac {3} {s} \right) Y(s) = \frac {1} {s} \]
+  This is a first order linear equation that can be solved using the integrating
+  factor:
+  \begin{eqnarray*}
+    \mu & = & exp\left( - \int \left( \frac {s} {3} - \frac {3} {s} \right) ds \right) \\
+    \mu & = & exp\left( - \frac {s^2} {6} + ln(s) \right) \\
+    \mu & = & s^3 e^{-\frac {s^2} {6}}
+  \end{eqnarray*}
+  so that
+  \begin{eqnarray*}
+    \frac {d} {ds} \left( \mu Y(s) \right) & = & - \frac {s} {3} e^{-\frac {s^2} {6}} \\
+    \mu Y(s) & = & - \frac {1} {3} \int s e^{-\frac {s^2} {6}} ds \\
+    \mu Y(s) & = & e^{-\frac {s^2} {6}} + C
+  \end{eqnarray*}
+  We find $Y(s)$:
+  \[ Y(s) = \frac {1} {s^3} + \frac {C} {s^3} e^{-\frac {s^2} {6}} \]
+  Since $Y(s)$ is the LT of $y(t)$ (we assume that $y(t)$ is a 
+  piecewise continuous function of exponential order), we must have
+  $ \lim_{s \to \infty} Y(s) =0$, $C=0$. Now $Y(s) = \frac {1} {s^3}$ and we find
+  the inverse LT:
+  \begin{equation*}
+    \boxed{y(t) = \frac {t^2} {2}}
+  \end{equation*}
+\end{solution}
 
 
 
