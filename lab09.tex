@@ -16,8 +16,8 @@
 \begin{document}
 \course{Differential Equations}
 \coursecode{MATH 201}
-\term{Winter 2018}
-\instructor{Carlos Contreras}
+\term{Winter 2020}
+\instructor{Carlos Contreras, Rahim Usubov}
 \lqnumber{Lab 9}
 \labtitle{LT-- Convolution theorem}
 \makelabtitle
@@ -39,6 +39,15 @@ Find the Laplace transform of the periodic function
        \end{array}\right.
 \]
 with period $T=2$.
+\end{problem}
+
+
+\begin{problem}
+Solve the IVP
+\[ y^{\prime \prime} + 3 y^{\prime} + 2y = f(t), \quad y(0) = 0, \quad y^{\prime}(0) = 0, \]
+Where $f(t)$ is a periodic function
+\[ f(t) = e^t, \quad 0 < t < 1\]
+with period $T=1$.
 \end{problem}
 
 
@@ -171,6 +180,90 @@ First we find the integral
 Thus,
 \[\boxed{F(s) = \frac{1}{1-e^{-2s}}\left( \frac{1-e^{-(s+1)}}{s+1} + \frac{e^{-s}-e^{-2s}}{s} \right)}\].
 \end{solution}
+
+
+% Rahim
+\begin{problem}
+Solve the IVP
+\[ y^{\prime \prime} + 3 y^{\prime} + 2y = f(t), \quad y(0) = 0, \quad y^{\prime}(0) = 0, \]
+Where $f(t)$ is a periodic function
+\[ f(t) = e^t, \quad 0 < t < 1\]
+with period $T=1$.
+\end{problem}
+\begin{solution}
+  First we find the Laplace transform of the RHS $f(t)$:
+  \[
+    F(s) = \frac { \int_0^T e-^{st} e^t dt} {1 - e^{-sT}} =
+    \frac { e^{1 - s} - 1} {1 - e^{-s}}
+  \]
+  The LT of the whole equation:
+  \begin{eqnarray*}
+    s^2 Y(s) + 3Y(s) + 2Y(s) & = & \frac { e^{1 - s} - 1} {1 - e^{-s}} \\
+    \left( s + 1 \right) \left( s + 2 \right) Y(s) & = & \frac { e^{1 - s} - 1} {1 - e^{-s}} \\
+  \end{eqnarray*}
+  We now can find the LT of the solution:
+  \[
+    Y(s) = \frac {1} {1 - e^{-s}} \frac {e e^{-s} - 1} {(1 - s) (s + 1) (s + 2)}
+  \]
+  The rest of the solution is finding the inverse LT. First, we factorize the denominator:
+  \[
+    \frac {1} {(1 - s) (s + 1) (s + 2)} = \frac {1} {6} \frac {1} {1 - s}
+    + \frac {1} {2} \frac {1} {s + 1} - \frac {1} {3} \frac {1} {s + 2},
+  \]
+  so that
+  \[
+    Y(s) = \frac { e^{1 - s} - 1} {1 - e^{-s}}
+    \left(  \frac {1} {6} \frac {1} {1 - s}
+      + \frac {1} {2} \frac {1} {s + 1} - \frac {1} {3} \frac {1} {s + 2} \right).
+  \]
+  To further transform the expression into a combination of LT of known functions,
+  we expand:
+  \[
+    \frac {1} {1 - e^{-s}} = \sum_{n = 0}^{\infty} e^{-ns},
+  \]
+  thus:
+  \[
+    Y(s) = \sum_{n = 0}^{\infty} e^{-ns} \left( e e^{- s} - 1 \right)
+    \left(  \frac {1} {6} \frac {1} {1 - s}
+      + \frac {1} {2} \frac {1} {s + 1} - \frac {1} {3} \frac {1} {s + 2} \right).
+  \]
+  Now we can find the inverse LT term by term:
+  \begin{equation}
+    \begin{aligned}
+      y(t) = \sum_{n = 0}^{\infty} & \left[
+        - \frac {e} {6} e^{\left( t - (n + 1) \right)} u\left( t - (n + 1) \right)
+        + \frac {e} {2} e^{ - \left( t - (n + 1) \right)} u\left( t - (n + 1) \right) \right. \\
+        & \left. - \frac {e} {3} e^{ -2 \left( t - (n + 1) \right)} u\left( t - (n + 1) \right)
+          + \frac {1} {6} e^{\left( t - n \right)} u\left( t - n \right)
+          - \frac {1} {2} e^{- \left( t - n \right)} u\left( t - n \right)
+          + \frac {1} {3} e^{ -2 \left( t - n \right)} u\left( t - n \right)
+      \right]
+    \end{aligned}
+  \end{equation}
+  Simplifying out the unit step functions, we have for $N < t < N + 1$:
+  \begin{equation}
+    \begin{aligned}
+      y(t) = - \frac {e^t} {6} \sum_{n = 1}^{N} e^{1 - n}
+      + \frac {e^t} {6} \sum_{n = 0}^{N} e^{- n}
+      + \frac {e^{-t}} {2} \sum_{n = 1}^{N} e^{1 + n}
+      - \frac {e^{-t}} {2} \sum_{n = 0}^{N} e^{n}
+      - \frac {e^{-2t}} {3} \sum_{n = 1}^{N} e^{1 + 2n}
+      + \frac {e^{-2t}} {3} \sum_{n = 0}^{N} e^{2n}
+    \end{aligned}
+  \end{equation}
+  which is simplified:
+    \begin{equation}
+    \begin{aligned}
+      y(t) = - \frac {e^t} {6} e^{-N}
+      + \frac {e^{-t}} {2} \left( e^{N+1} - 1 - e \right)
+      + \frac {e^{-2t}} {3} \frac {(-e^{2N + 2} + e^2 + e + 1)} {e + 1}
+    \end{aligned}
+  \end{equation}
+
+
+\end{solution}
+
+
 
 
 
