@@ -248,16 +248,22 @@ with period $T=1$.
       + \frac {e^{-t}} {2} \sum_{n = 1}^{N} e^{1 + n}
       - \frac {e^{-t}} {2} \sum_{n = 0}^{N} e^{n}
       - \frac {e^{-2t}} {3} \sum_{n = 1}^{N} e^{1 + 2n}
-      + \frac {e^{-2t}} {3} \sum_{n = 0}^{N} e^{2n}
+      + \frac {e^{-2t}} {3} \sum_{n = 0}^{N} e^{2n}.
     \end{aligned}
   \end{equation}
-  which is simplified:
-    \begin{equation}
+  The terms in first two sums cancel out except for the last $- \frac {e^t} {6} e^{-N}$,
+  the terms in the next two sums cancel out except for the first two
+  $\frac {e^{-t}} {2} \left( - 1 - e \right)$ and the last one
+  $\frac {e^{-t}} {2} e^{N+1}$, the last two sums are left as is and can be
+  rewritten using a formula for the sum. Finally we have:
+  \begin{equation}
+    \boxed{
     \begin{aligned}
       y(t) = - \frac {e^t} {6} e^{-N}
       + \frac {e^{-t}} {2} \left( e^{N+1} - 1 - e \right)
       + \frac {e^{-2t}} {3} \frac {(-e^{2N + 2} + e^2 + e + 1)} {e + 1}
     \end{aligned}
+    }
   \end{equation}
 
 
