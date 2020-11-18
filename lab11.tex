@@ -18,7 +18,7 @@
 \course{Differential Equations}
 \coursecode{MATH 201}
 \term{Winter 2018}
-\instructor{Carlos Contreras}
+\instructor{Carlos Contreras, Rahim Usubov}
 \lqnumber{Lab 11}
 \labtitle{Fourier series}
 \makelabtitle
@@ -264,7 +264,7 @@ a_{n} & = \int_{-1}^{1}f(x)\cos \left(n\pi x\right) dx = \int_{0}^{1}x^{2}\cos \
 \begin{split}
 b_{n} & = \int_{-1}^{1}f(x)\sin \left(n\pi x\right)dx = \int_{0}^{1}x^{2}\sin \left(n\pi x\right)dx \\
       & = -\left.\frac{x^{2}\cos \left(n\pi x\right)}{n\pi}\right|_{0}^{1} + \int_{0}^{1}\frac{2x\cos \left(n\pi x\right)}{n\pi} dx \\
-      & = -\frac{(-1)^{n}}{n\pi} + \left.\frac{2x\sin\left(n\pi x\right)}{n^{\pi^{2}}}\right|_{0}^{1} - \int_{0}^{1}\frac{2x\sin\left(n\pi x\right)}{n^{2}\pi^{2}}dx \\
+      & = -\frac{(-1)^{n}}{n\pi} + \left.\frac{2x\sin\left(n\pi x\right)}{n^{\pi^{2}}}\right|_{0}^{1} - \int_{0}^{1}\frac{\sin\left(n\pi x\right)}{n^{2}\pi^{2}}dx \\
       & = -\frac{(-1)^{n}}{n\pi} + \left.\frac{2\cos\left(n\pi x\right)}{n^{3}{\pi^{3}}}\right|_{0}^{1} \\
       & = -\frac{(-1)^{n}}{n\pi} + \frac{2((-1)^{n}-1)}{n^{3}\pi^{3}}
 \end{split}
