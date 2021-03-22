@@ -192,14 +192,16 @@ with period $T=1$.
 \end{problem}
 \begin{solution}
   First we find the Laplace transform of the RHS $f(t)$:
-  \[
-    F(s) = \frac { \int_0^T e^{-st} e^t dt} {1 - e^{-sT}} =
-    \frac { e^{1 - s} - 1} {1 - e^{-s}}
-  \]
+  \begin{eqnarray*}
+    F(s) = \frac {1} {(1 - e^{-sT})} \int_0^T e^{-st} e^t dt
+    & = & \frac {1} {(1 - e^{-sT})}  \int_0^1 e^{(1 - s)t} dt\\
+    & = & \frac { e^{1 - s} - 1} {(1 - e^{-s}) (1 - s)}
+  \end{eqnarray*}
   The LT of the whole equation:
   \begin{eqnarray*}
-    s^2 Y(s) + 3Y(s) + 2Y(s) & = & \frac { e^{1 - s} - 1} {1 - e^{-s}} \\
-    \left( s + 1 \right) \left( s + 2 \right) Y(s) & = & \frac { e^{1 - s} - 1} {1 - e^{-s}} \\
+    s^2 Y(s) + 3Y(s) + 2Y(s) & = & \frac { e^{1 - s} - 1} {(1 - e^{-s})(1 - s)} \\
+    \left( s + 1 \right) \left( s + 2 \right) Y(s)
+                             & = & \frac { e^{1 - s} - 1} {(1 - e^{-s})(1 - s)} \\
   \end{eqnarray*}
   We now can find the LT of the solution:
   \[
