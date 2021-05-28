@@ -229,7 +229,7 @@ are called \textbf{exact equations} if and only if
 If it is not exact we might be able to use an integrating factor:
 \begin{enumerate}
  \item If $\frac{M_{ y} - N_{ x}}{ N}$ depends only on $x$ , use $I ( x ) = e^{\int \frac{M_{ y} - N_{ x}}{ N} dx}$ .
- \item If $\frac{N_{ x} - M_{ y}}{ M}$ depends only on $y$ , use $I ( y ) = e^{\int \frac{N_{ x} - M_{ y}}{ M} dx}$ .
+ \item If $\frac{N_{ x} - M_{ y}}{ M}$ depends only on $y$ , use $I ( y ) = e^{\int \frac{N_{ x} - M_{ y}}{ M} dy}$ .
 \end{enumerate}
 
 
@@ -738,10 +738,12 @@ Since this function depends only on $y$ we can define the following integrating 
 \[\mu( y ) = e^{ \int \frac{N_{ x} - M_{ y}}{ M} dy }= e^{ \int \frac{ dy}{ y}} = y.\]
 Multiplying both sides of the equation by $\mu ( y ) = y$ , we get
 \[y^{ 2} dx + (2 xy - y^{ 2} e^{ y} ) dy = 0 .\]
+Now
+\[ \tilde{M}(x, y) = y^2, \quad \tilde{N}(x, y) = 2 xy - y^{ 2} e^{ y} \]
 Note that this new equation is exact.  Now we apply the method for exact equations
-\[F ( x,y ) = \int M ( x,y ) dx = \int y^{ 2} dx = xy^2 + h ( y ) .\]
+\[F ( x,y ) = \int \tilde{M} ( x,y ) dx = \int y^{ 2} dx = xy^2 + h ( y ) .\]
 and
-\[\partial_{ y} F ( x,y ) = 2 xy + h'( y ) = 2 xy - y^{ 2} e^{ y} = N ( x,y ) \Rightarrow h'( y ) = - y^{ 2} e^{ y} ,\]
+\[\partial_{ y} F ( x,y ) = 2 xy + h'( y ) = 2 xy - y^{ 2} e^{ y} = \tilde{N} ( x,y ) \Rightarrow h'( y ) = - y^{ 2} e^{ y} ,\]
 which after integration by parts gives,
 \[ h ( y ) = ( - y^{ 2} + 2 y - 2) e^{y} +C.\]
 Finally,
